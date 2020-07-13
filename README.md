@@ -1,3 +1,4 @@
+<<<<<<< HEAD
 # speedtest
 
 A UI demo for speedtest application.
@@ -14,3 +15,6 @@ A few resources to get you started if this is your first Flutter project:
 For help getting started with Flutter, view our
 [online documentation](https://flutter.dev/docs), which offers tutorials,
 samples, guidance on mobile development, and a full API reference.
+=======
+# speedtest
+>>>>>>> 9c890182a7567918e95449980c571e20d40549cd
