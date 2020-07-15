@@ -9,27 +9,6 @@ class SpeedTest extends StatefulWidget {
 }
 
 class _SpeedTestState extends State<SpeedTest> {
-  String selectedServer = 'Select a server';
-//  DropdownButton getDropdownButton() {
-//    List<DropdownMenuItem> dropdownMenuItem = [];
-//    for (String _server in serverList[0].state) {
-//      var newItem = DropdownMenuItem(
-//        value: _server,
-//        child: Text(_server),
-//      );
-//      dropdownMenuItem.add(newItem);
-//    }
-//    return DropdownButton(
-//      items: dropdownMenuItem,
-//      value: selectedServer,
-//      onChanged: (value) {
-//        setState(() {
-//          value = selectedServer;
-//        });
-//      },
-//    );
-//  }
-
   @override
   Widget build(BuildContext context) {
     return SafeArea(
@@ -37,43 +16,37 @@ class _SpeedTestState extends State<SpeedTest> {
         body: Padding(
           padding: EdgeInsets.symmetric(horizontal: 10, vertical: 15),
           child: Column(
-            mainAxisAlignment: MainAxisAlignment.spaceBetween,
             children: <Widget>[
-              Column(
+              AppHeader(),
+              Row(
+                mainAxisAlignment: MainAxisAlignment.spaceEvenly,
                 children: <Widget>[
-                  AppHeader(),
-                  Row(
-                    mainAxisAlignment: MainAxisAlignment.spaceEvenly,
-                    children: <Widget>[
-                      TestingUnits(
-                        iconData: FontAwesomeIcons.arrowAltCircleUp,
-                        iconColor: Colors.orange.shade700,
-                        digit: '0',
-                        title: 'Upload',
-                        unit: 'Mbps',
-                      ),
-                      TestingUnits(
-                        iconData: FontAwesomeIcons.arrowAltCircleDown,
-                        iconColor: Colors.green.shade700,
-                        digit: '0',
-                        title: 'Download',
-                        unit: 'Mbps',
-                      ),
-                      TestingUnits(
-                        iconData: Icons.sync,
-                        iconColor: Colors.red,
-                        digit: '0',
-                        title: 'Ping',
-                        unit: 'ms',
-                      ),
-                    ],
+                  TestingUnits(
+                    iconData: FontAwesomeIcons.arrowAltCircleUp,
+                    iconColor: Colors.orange.shade700,
+                    digit: '0',
+                    title: 'Upload',
+                    unit: 'Mbps',
+                  ),
+                  TestingUnits(
+                    iconData: FontAwesomeIcons.arrowAltCircleDown,
+                    iconColor: Colors.green.shade700,
+                    digit: '0',
+                    title: 'Download',
+                    unit: 'Mbps',
+                  ),
+                  TestingUnits(
+                    iconData: Icons.sync,
+                    iconColor: Colors.red,
+                    digit: '0',
+                    title: 'Ping',
+                    unit: 'ms',
                   ),
                 ],
               ),
-              // todo get/design better gauge
-              SpeedometerWidget(),
-              // todo fix server selection dropdown
-//              getDropdownButton(),
+              Expanded(
+                child: SpeedometerWidget(),
+              ),
               Row(
                 mainAxisAlignment: MainAxisAlignment.spaceEvenly,
                 children: <Widget>[
@@ -84,13 +57,8 @@ class _SpeedTestState extends State<SpeedTest> {
                   ),
                   ExtraInfoWidget(
                     iconData: Icons.router,
-                    title: 'IP Adress',
+                    title: 'IP Address',
                     subtitle: '63.5.17.93',
-                  ),
-                  ExtraInfoWidget(
-                    iconData: Icons.location_on,
-                    title: 'Location',
-                    subtitle: 'Dallas, TX',
                   ),
                 ],
               ),

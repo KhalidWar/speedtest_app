@@ -1,7 +1,8 @@
+import 'package:animations/animations.dart';
 import 'package:flutter/material.dart';
 import 'package:font_awesome_flutter/font_awesome_flutter.dart';
 import 'package:speedtest/components/app_header.dart';
-import 'package:speedtest/components/history_list_item.dart';
+import 'package:speedtest/dummy_data/history_list_item.dart';
 import 'package:speedtest/services/theme_manager.dart';
 
 class HistoryScreen extends StatefulWidget {
@@ -29,7 +30,7 @@ class _HistoryScreenState extends State<HistoryScreen> {
                               padding: EdgeInsets.only(bottom: 3),
                               child: GestureDetector(
                                 onTap: () {
-                                  showDialog(
+                                  showModal(
                                       context: context,
                                       builder: (BuildContext context) {
                                         return HistoryDetailDialog(

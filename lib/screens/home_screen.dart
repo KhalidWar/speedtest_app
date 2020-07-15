@@ -1,6 +1,6 @@
+import 'package:animations/animations.dart';
 import 'package:flutter/material.dart';
 import 'package:speedtest/screens/settings_screen.dart';
-import 'package:speedtest/services/theme_manager.dart';
 
 import 'history_screen.dart';
 import 'speed_test.dart';
@@ -12,7 +12,6 @@ class HomeScreen extends StatefulWidget {
 
 class _HomeScreenState extends State<HomeScreen> {
   int _selectedIndex = 1;
-  ThemeManager themeManager;
 
   final tabs = [
     HistoryScreen(),
@@ -29,7 +28,12 @@ class _HomeScreenState extends State<HomeScreen> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      body: tabs[_selectedIndex],
+      body: PageTransitionSwitcher(
+        duration: Duration(milliseconds: 100),
+        transitionBuilder: (child, primaryAnimation, secondaryAnimation) =>
+            FadeScaleTransition(animation: primaryAnimation, child: child),
+        child: tabs[_selectedIndex],
+      ),
       bottomNavigationBar: BottomNavigationBar(
         backgroundColor: Theme.of(context).primaryColorLight,
         currentIndex: _selectedIndex,
@@ -43,7 +47,6 @@ class _HomeScreenState extends State<HomeScreen> {
             title: Text('History'),
           ),
           BottomNavigationBarItem(
-            // todo get the correct icon
             icon: Icon(Icons.network_check),
             title: Text('Speedtest'),
           ),

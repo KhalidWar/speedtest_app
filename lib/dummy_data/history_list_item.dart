@@ -1,15 +1,15 @@
 import 'package:flutter/material.dart';
 
 class Items {
-  Items(
-      {this.time,
-      this.network,
-      this.ping,
-      this.download,
-      this.upload,
-      this.ip,
-      this.location});
-  // todo change to DateTime
+  Items({
+    this.time,
+    this.network,
+    this.ping,
+    this.download,
+    this.upload,
+    this.ip,
+    this.location,
+  });
   String time, ip, location;
   IconData network;
   int ping;

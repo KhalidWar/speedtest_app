@@ -1,9 +1,10 @@
+import 'package:animations/animations.dart';
 import 'package:flutter/material.dart';
 import 'package:font_awesome_flutter/font_awesome_flutter.dart';
 import 'package:provider/provider.dart';
 import 'package:speedtest/components/about_content.dart';
 import 'package:speedtest/components/app_header.dart';
-import 'package:speedtest/components/history_list_item.dart';
+import 'package:speedtest/dummy_data/history_list_item.dart';
 import 'package:speedtest/services/theme_manager.dart';
 
 class SettingsScreen extends StatelessWidget {
@@ -55,7 +56,7 @@ class SettingsScreen extends StatelessWidget {
                     borderSide:
                         BorderSide(color: Theme.of(context).accentColor),
                     onPressed: () {
-                      showDialog(
+                      showModal(
                           context: context,
                           builder: (BuildContext context) {
                             return ConfirmationDialog();
