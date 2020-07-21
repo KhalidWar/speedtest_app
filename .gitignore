@@ -31,6 +31,9 @@
 .pub/
 /build/
 
+# Flutter project specific
+lib/confidential.dart
+
 # Web related
 lib/generated_plugin_registrant.dart
 

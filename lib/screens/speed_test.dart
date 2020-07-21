@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:font_awesome_flutter/font_awesome_flutter.dart';
 import 'package:speedtest/components/app_header.dart';
-import 'package:speedtest/components/speedometer_widget.dart';
+import 'package:speedtest/components/radial_gauge.dart';
 
 class SpeedTest extends StatefulWidget {
   @override
@@ -45,7 +45,7 @@ class _SpeedTestState extends State<SpeedTest> {
                 ],
               ),
               Expanded(
-                child: SpeedometerWidget(),
+                child: RadialGauge(),
               ),
               Row(
                 mainAxisAlignment: MainAxisAlignment.spaceEvenly,

@@ -1,4 +1,3 @@
-import 'package:animations/animations.dart';
 import 'package:flutter/material.dart';
 import 'package:speedtest/screens/settings_screen.dart';
 
@@ -28,11 +27,14 @@ class _HomeScreenState extends State<HomeScreen> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      body: PageTransitionSwitcher(
-        duration: Duration(milliseconds: 100),
-        transitionBuilder: (child, primaryAnimation, secondaryAnimation) =>
-            FadeScaleTransition(animation: primaryAnimation, child: child),
-        child: tabs[_selectedIndex],
+      //todo implement IndexedStack
+      body: IndexedStack(
+        index: _selectedIndex,
+        children: <Widget>[
+          HistoryScreen(),
+          SpeedTest(),
+          SettingsScreen(),
+        ],
       ),
       bottomNavigationBar: BottomNavigationBar(
         backgroundColor: Theme.of(context).primaryColorLight,

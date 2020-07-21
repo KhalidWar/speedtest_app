@@ -2,8 +2,14 @@ import 'package:flutter/material.dart';
 import 'package:provider/provider.dart';
 import 'package:speedtest/screens/home_screen.dart';
 import 'package:speedtest/services/theme_manager.dart';
+import 'package:syncfusion_flutter_core/core.dart';
 
-void main() async => runApp(MyApp());
+import 'confidential.dart';
+
+void main() {
+  SyncfusionLicense.registerLicense(syncFusionLicenseKey);
+  runApp(MyApp());
+}
 
 class MyApp extends StatelessWidget {
   @override

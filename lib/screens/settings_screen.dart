@@ -106,13 +106,14 @@ class ConfirmationDialog extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
+    Color themedColor = isLightTheme(context) ? Colors.black : Colors.white;
     return AlertDialog(
       content: RichText(
         text: TextSpan(
             text: 'Are you sure you want to ',
             style: TextStyle(
               fontSize: 20,
-              color: isLightTheme(context) ? Colors.black : Colors.white,
+              color: themedColor,
             ),
             children: [
               TextSpan(
@@ -129,8 +130,7 @@ class ConfirmationDialog extends StatelessWidget {
           padding: EdgeInsets.symmetric(vertical: 8),
           child: Text(
             'Yes',
-            style:
-                TextStyle(fontSize: 20, color: Theme.of(context).accentColor),
+            style: TextStyle(fontSize: 20, color: themedColor),
           ),
           onPressed: () {
             historyItemList.clear();
@@ -143,8 +143,7 @@ class ConfirmationDialog extends StatelessWidget {
           padding: EdgeInsets.symmetric(vertical: 8),
           child: Text(
             'No',
-            style:
-                TextStyle(fontSize: 20, color: Theme.of(context).accentColor),
+            style: TextStyle(fontSize: 20, color: themedColor),
           ),
           onPressed: () {
             Navigator.pop(context);
