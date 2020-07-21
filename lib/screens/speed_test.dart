@@ -1,8 +1,8 @@
 import 'package:flutter/material.dart';
 import 'package:font_awesome_flutter/font_awesome_flutter.dart';
 import 'package:speedtest/widgets/app_header.dart';
-import 'package:speedtest/widgets/radial_gauge.dart';
 import 'package:speedtest/widgets/extra_info_widget.dart';
+import 'package:speedtest/widgets/radial_gauge.dart';
 import 'package:speedtest/widgets/testing_units_widget.dart';
 
 class SpeedTest extends StatefulWidget {

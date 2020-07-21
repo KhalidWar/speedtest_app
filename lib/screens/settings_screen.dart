@@ -3,8 +3,8 @@ import 'package:flutter/material.dart';
 import 'package:font_awesome_flutter/font_awesome_flutter.dart';
 import 'package:provider/provider.dart';
 import 'package:speedtest/dummy_data/about_content.dart';
-import 'package:speedtest/widgets/app_header.dart';
 import 'package:speedtest/services/theme_manager.dart';
+import 'package:speedtest/widgets/app_header.dart';
 import 'package:speedtest/widgets/settings_confirmation_dialog.dart';
 
 class SettingsScreen extends StatelessWidget {

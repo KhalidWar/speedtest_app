@@ -1,9 +1,7 @@
 import 'package:animations/animations.dart';
 import 'package:flutter/material.dart';
-import 'package:font_awesome_flutter/font_awesome_flutter.dart';
-import 'package:speedtest/widgets/app_header.dart';
 import 'package:speedtest/dummy_data/history_list_item.dart';
-import 'package:speedtest/services/theme_manager.dart';
+import 'package:speedtest/widgets/app_header.dart';
 import 'package:speedtest/widgets/history_card_widget.dart';
 import 'package:speedtest/widgets/history_detail_dialog.dart';
 
@@ -76,5 +74,3 @@ class _HistoryScreenState extends State<HistoryScreen> {
     );
   }
 }
-
-
