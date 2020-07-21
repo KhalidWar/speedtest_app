@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-import 'package:speedtest/components/app_header.dart';
+import 'package:speedtest/widgets/app_header.dart';
 
 import 'home_screen.dart';
 

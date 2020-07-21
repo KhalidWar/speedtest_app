@@ -2,10 +2,10 @@ import 'package:animations/animations.dart';
 import 'package:flutter/material.dart';
 import 'package:font_awesome_flutter/font_awesome_flutter.dart';
 import 'package:provider/provider.dart';
-import 'package:speedtest/components/about_content.dart';
-import 'package:speedtest/components/app_header.dart';
-import 'package:speedtest/dummy_data/history_list_item.dart';
+import 'package:speedtest/dummy_data/about_content.dart';
+import 'package:speedtest/widgets/app_header.dart';
 import 'package:speedtest/services/theme_manager.dart';
+import 'package:speedtest/widgets/settings_confirmation_dialog.dart';
 
 class SettingsScreen extends StatelessWidget {
   @override
@@ -59,7 +59,7 @@ class SettingsScreen extends StatelessWidget {
                       showModal(
                           context: context,
                           builder: (BuildContext context) {
-                            return ConfirmationDialog();
+                            return SettingsConfirmationDialog();
                           });
                     },
                   ),
@@ -95,61 +95,6 @@ class SettingsScreen extends StatelessWidget {
           ),
         ),
       ),
-    );
-  }
-}
-
-class ConfirmationDialog extends StatelessWidget {
-  const ConfirmationDialog({
-    Key key,
-  }) : super(key: key);
-
-  @override
-  Widget build(BuildContext context) {
-    Color themedColor = isLightTheme(context) ? Colors.black : Colors.white;
-    return AlertDialog(
-      content: RichText(
-        text: TextSpan(
-            text: 'Are you sure you want to ',
-            style: TextStyle(
-              fontSize: 20,
-              color: themedColor,
-            ),
-            children: [
-              TextSpan(
-                text: 'Clear History ',
-                style: TextStyle(fontWeight: FontWeight.bold),
-              ),
-              TextSpan(text: '?'),
-            ]),
-      ),
-      actions: <Widget>[
-        OutlineButton(
-          highlightedBorderColor: Theme.of(context).accentColor,
-          borderSide: BorderSide(color: Theme.of(context).accentColor),
-          padding: EdgeInsets.symmetric(vertical: 8),
-          child: Text(
-            'Yes',
-            style: TextStyle(fontSize: 20, color: themedColor),
-          ),
-          onPressed: () {
-            historyItemList.clear();
-            Navigator.pop(context);
-          },
-        ),
-        OutlineButton(
-          highlightedBorderColor: Theme.of(context).accentColor,
-          borderSide: BorderSide(color: Theme.of(context).accentColor),
-          padding: EdgeInsets.symmetric(vertical: 8),
-          child: Text(
-            'No',
-            style: TextStyle(fontSize: 20, color: themedColor),
-          ),
-          onPressed: () {
-            Navigator.pop(context);
-          },
-        ),
-      ],
     );
   }
 }

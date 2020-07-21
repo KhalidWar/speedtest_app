@@ -12,12 +12,6 @@ class HomeScreen extends StatefulWidget {
 class _HomeScreenState extends State<HomeScreen> {
   int _selectedIndex = 1;
 
-  final tabs = [
-    HistoryScreen(),
-    SpeedTest(),
-    SettingsScreen(),
-  ];
-
   void selectedIndex(int index) {
     setState(() {
       _selectedIndex = index;
