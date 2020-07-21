@@ -32,7 +32,7 @@
 /build/
 
 # Flutter project specific
-lib/confidential.dart
+confidential.dart
 
 # Web related
 lib/generated_plugin_registrant.dart
