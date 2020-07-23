@@ -21,7 +21,6 @@ class _HomeScreenState extends State<HomeScreen> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      //todo implement IndexedStack
       body: IndexedStack(
         index: _selectedIndex,
         children: <Widget>[
@@ -31,7 +30,8 @@ class _HomeScreenState extends State<HomeScreen> {
         ],
       ),
       bottomNavigationBar: BottomNavigationBar(
-        backgroundColor: Theme.of(context).primaryColorLight,
+        elevation: 15,
+        backgroundColor: Theme.of(context).scaffoldBackgroundColor,
         currentIndex: _selectedIndex,
         onTap: selectedIndex,
         selectedItemColor: Theme.of(context).accentColor,

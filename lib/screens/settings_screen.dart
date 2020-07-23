@@ -2,12 +2,14 @@ import 'package:animations/animations.dart';
 import 'package:flutter/material.dart';
 import 'package:font_awesome_flutter/font_awesome_flutter.dart';
 import 'package:provider/provider.dart';
-import 'package:speedtest/dummy_data/about_content.dart';
-import 'package:speedtest/services/theme_manager.dart';
+import 'package:speedtest/providers/theme_manager.dart';
 import 'package:speedtest/widgets/app_header.dart';
 import 'package:speedtest/widgets/settings_confirmation_dialog.dart';
+import 'package:url_launcher/url_launcher.dart';
 
 class SettingsScreen extends StatelessWidget {
+  final url = 'https://github.com/KhalidWar/speedtest';
+
   @override
   Widget build(BuildContext context) {
     return SafeArea(
@@ -66,30 +68,39 @@ class SettingsScreen extends StatelessWidget {
                 ],
               ),
               SizedBox(height: 10),
-              Text(
-                'About App',
-                style: TextStyle(
-                  fontSize: 25.0,
-                  fontWeight: FontWeight.bold,
-                ),
-              ),
-              Text(
-                aboutContent(),
-                style: TextStyle(letterSpacing: 1),
-              ),
-              IconButton(
-                iconSize: 50,
-                icon: Icon(FontAwesomeIcons.github),
-                onPressed: () {
-                  // todo add project public github repo
-                },
-              ),
-              Text(
-                'License',
-                style: TextStyle(
-                  fontSize: 25.0,
-                  fontWeight: FontWeight.bold,
-                ),
+              Column(
+                crossAxisAlignment: CrossAxisAlignment.start,
+                children: <Widget>[
+                  Row(
+                    mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                    children: <Widget>[
+                      Text(
+                        'About App',
+                        style: TextStyle(
+                          fontSize: 25.0,
+                          fontWeight: FontWeight.bold,
+                        ),
+                      ),
+                      OutlineButton(
+                        child: Icon(FontAwesomeIcons.github),
+                        highlightedBorderColor: Theme.of(context).accentColor,
+                        borderSide:
+                            BorderSide(color: Theme.of(context).accentColor),
+                        onPressed: () async {
+                          if (await canLaunch(url)) {
+                            await launch(url);
+                          } else {
+                            throw 'Could not launch $url';
+                          }
+                        },
+                      ),
+                    ],
+                  ),
+                  Text(
+                    'Visit github repo for more information.',
+                    style: Theme.of(context).textTheme.bodyText2,
+                  ),
+                ],
               ),
             ],
           ),

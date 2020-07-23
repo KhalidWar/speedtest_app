@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:font_awesome_flutter/font_awesome_flutter.dart';
-import 'package:speedtest/services/theme_manager.dart';
+import 'package:speedtest/providers/theme_manager.dart';
 
 class HistoryCardWidget extends StatelessWidget {
   const HistoryCardWidget({
@@ -26,8 +26,6 @@ class HistoryCardWidget extends StatelessWidget {
   Widget build(BuildContext context) {
     Color themedColor = isLightTheme(context) ? Colors.black54 : Colors.white54;
     return Card(
-      elevation: 3,
-      color: Theme.of(context).primaryColorLight,
       child: Padding(
         padding: EdgeInsets.all(5),
         child: Column(

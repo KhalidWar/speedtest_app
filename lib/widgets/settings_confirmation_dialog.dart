@@ -1,6 +1,5 @@
 import 'package:flutter/material.dart';
-import 'package:speedtest/dummy_data/history_list_item.dart';
-import 'package:speedtest/services/theme_manager.dart';
+import 'package:speedtest/providers/theme_manager.dart';
 
 class SettingsConfirmationDialog extends StatelessWidget {
   const SettingsConfirmationDialog({
@@ -36,7 +35,7 @@ class SettingsConfirmationDialog extends StatelessWidget {
             style: TextStyle(fontSize: 20, color: themedColor),
           ),
           onPressed: () {
-            historyItemList.clear();
+//            historyItemList.clear();
             Navigator.pop(context);
           },
         ),

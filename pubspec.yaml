@@ -15,6 +15,7 @@ dependencies:
   animations: ^1.1.1
   syncfusion_flutter_core: ^18.2.45
   syncfusion_flutter_gauges: ^18.2.45
+  url_launcher: ^5.5.0
 
 
 dev_dependencies:

@@ -1,108 +1,97 @@
 import 'package:flutter/material.dart';
+import 'package:speedtest/providers/theme_manager.dart';
 import 'package:syncfusion_flutter_gauges/gauges.dart';
 
-class RadialGauge extends StatefulWidget {
-  @override
-  _RadialGaugeState createState() => _RadialGaugeState();
-}
+class RadialGauge extends StatelessWidget {
+  RadialGauge({
+    this.showAnnotation,
+    this.value,
+  });
 
-class _RadialGaugeState extends State<RadialGauge> {
-  double pointerAnnotation = 90;
-
-  void updateUI() {
-//    var value = ;
-    setState(() {
-//      value = pointerAnnotation;
-    });
-  }
+  final bool showAnnotation;
+  final double value;
 
   @override
   Widget build(BuildContext context) {
-    Size size = MediaQuery.of(context).size;
-    return Scaffold(
-      backgroundColor: Theme.of(context).scaffoldBackgroundColor,
-      body: Center(
-        child: Container(
-          width: size.width * 0.85,
-          height: size.height,
-          child: SfRadialGauge(
-            enableLoadingAnimation: true,
-            axes: <RadialAxis>[
-              RadialAxis(
-                useRangeColorForAxis: true,
-                minorTicksPerInterval: 0,
-                interval: 10, //todo gradual +5 function
-//                axisLabelStyle: GaugeTextStyle(color: Colors.purple),
-                startAngle: 145,
-                endAngle: 35,
-                minimum: 0,
-                maximum: 100,
-                axisLineStyle: AxisLineStyle(
-                  thickness: 40,
-                  color: Colors.grey[300],
-                  gradient: SweepGradient(
-                    stops: [0, 0.5, 1],
-                    colors: [Colors.red, Colors.green, Colors.blue],
-                  ),
-                ),
-                ranges: <GaugeRange>[
-//                  GaugeRange(
-//                    startValue: 0,
-//                    endValue: 30,
-//                    color: Colors.red,
-//                  ),
-//                  GaugeRange(
-//                    startValue: 30,
-//                    endValue: 60,
-//                    color: Colors.orange,
-//                  ),
-//                  GaugeRange(
-//                    startValue: 60,
-//                    endValue: 90,
-//                    color: Colors.green,
-//                  ),
-//                  GaugeRange(
-//                    startValue: 90,
-//                    endValue: 100,
-//                    color: Colors.black,
-//                  ),
-                ],
-                pointers: <GaugePointer>[
-                  NeedlePointer(
-                    needleStartWidth: 1,
-                    needleEndWidth: 5,
-                    needleLength: 0.76,
-                    value: pointerAnnotation,
-                    gradient:
-                        LinearGradient(colors: [Colors.red, Colors.orange]),
-                    knobStyle: KnobStyle(
-                      borderColor: Theme.of(context).scaffoldBackgroundColor,
-                      borderWidth: 0.01,
-                      knobRadius: 0.04,
-//                      color: Colors.transparent,
-                    ),
-                  ),
-                ],
-                annotations: <GaugeAnnotation>[
-                  GaugeAnnotation(
-                    angle: 90,
-                    positionFactor: 0.8,
-                    widget: Container(
-                      child: Text(
-                        '$pointerAnnotation',
-                        style: TextStyle(
-                          fontSize: 40,
-                          fontWeight: FontWeight.bold,
-                        ),
-                      ),
-                    ),
-                  ),
-                ],
-              ),
-            ],
+    Color themedColor = isLightTheme(context) ? Colors.black : Colors.white;
+    double axisLinePointerRangeThickness = 0.25;
+    double animationDuration = 1000;
+//todo implement custom value gauge
+    return SfRadialGauge(
+      enableLoadingAnimation: true,
+      axes: <RadialAxis>[
+        RadialAxis(
+          interval: 10,
+          startAngle: 145,
+          endAngle: 35,
+          minimum: 0,
+          maximum: 100,
+          showTicks: false,
+          labelOffset: 15,
+          radiusFactor: 1,
+          showLabels: false,
+          axisLabelStyle: GaugeTextStyle(fontSize: 12),
+          axisLineStyle: AxisLineStyle(
+            thicknessUnit: GaugeSizeUnit.factor,
+            thickness: axisLinePointerRangeThickness,
           ),
+          pointers: <GaugePointer>[
+            NeedlePointer(
+              value: value,
+              enableAnimation: true,
+              animationDuration: animationDuration,
+              animationType: AnimationType.ease,
+              lengthUnit: GaugeSizeUnit.factor,
+              needleStartWidth: 4,
+              needleEndWidth: 8,
+              needleLength: 0.7,
+              knobStyle: KnobStyle(
+                knobRadius: 0,
+              ),
+              gradient: LinearGradient(
+                begin: Alignment.bottomCenter,
+                end: Alignment.topCenter,
+                colors: <Color>[
+                  Color(0xffff8000),
+                  Colors.red,
+                ],
+                stops: <double>[0.25, 0.75],
+              ),
+            ),
+            RangePointer(
+              value: value,
+              width: axisLinePointerRangeThickness,
+              sizeUnit: GaugeSizeUnit.factor,
+              color: Color(0xFF494CA2),
+              enableAnimation: true,
+              animationDuration: animationDuration,
+              animationType: AnimationType.easeOutBack,
+              gradient: SweepGradient(
+                colors: <Color>[
+                  Color(0xffff8000),
+                  Colors.red,
+                ],
+                stops: <double>[0.25, 0.75],
+              ),
+            ),
+          ],
+          annotations: <GaugeAnnotation>[
+            GaugeAnnotation(
+              angle: 90,
+              positionFactor: 0.8,
+              widget: Container(
+                child: Text(
+                  showAnnotation ? '$value' : '',
+                  style: Theme.of(context).textTheme.headline3.copyWith(
+                        color: themedColor,
+                        fontWeight: FontWeight.bold,
+                      ),
+                ),
+              ),
+            ),
+          ],
         ),
-      ),
+      ],
     );
   }
 }

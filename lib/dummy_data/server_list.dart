@@ -1,17 +1,3 @@
-List serverList = [
-  Server(
-    state: 'Roma',
-    country: 'Italy',
-    host: 'GARR',
-  ),
-  Server(
-    state: 'Helsinki',
-    country: 'Finland',
-    host: 'Hetzner',
-    counter: 1,
-  )
-];
-
 class Server {
   Server({
     this.state,
@@ -24,3 +10,5 @@ class Server {
   String host;
   int counter;
 }
+
+List serverList = [];

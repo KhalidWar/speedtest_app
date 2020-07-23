@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:speedtest/providers/theme_manager.dart';
 
 class TestingUnitsWidget extends StatelessWidget {
   TestingUnitsWidget({
@@ -7,53 +8,60 @@ class TestingUnitsWidget extends StatelessWidget {
     @required this.digit,
     @required this.iconData,
     @required this.iconColor,
+    this.isDownload,
+    this.crossAxisAlignment,
   });
 
+  final CrossAxisAlignment crossAxisAlignment;
   final IconData iconData;
   final Color iconColor;
   final String title;
   final String digit;
   final String unit;
+  final bool isDownload;
 
   @override
   Widget build(BuildContext context) {
+    TextTheme textTheme = Theme.of(context).textTheme;
+    Color themedColor = isLightTheme(context) ? Colors.black : Colors.white;
     return Column(
+      crossAxisAlignment: crossAxisAlignment,
       children: <Widget>[
         Row(
           mainAxisAlignment: MainAxisAlignment.center,
           children: <Widget>[
-            Padding(
-              padding: EdgeInsets.only(right: 2),
-              child: Icon(
-                iconData,
-                color: iconColor,
-              ),
-            ),
+//            Icon(
+//              iconData,
+//              color: iconColor,
+//              size: isDownload
+//                  ? MediaQuery.of(context).size.height * 0.032
+//                  : MediaQuery.of(context).size.height * 0.02,
+//            ),
             Text(
-              title,
-              style: TextStyle(fontSize: 20.0),
+              ' $title',
+              style: textTheme.headline6.copyWith(
+                fontSize: isDownload ? 30 : 15,
+                fontWeight: isDownload ? FontWeight.bold : FontWeight.w400,
+              ),
             ),
           ],
         ),
         Row(
           // todo align text to baseline
-          textBaseline: TextBaseline.alphabetic,
-          mainAxisAlignment: MainAxisAlignment.center,
           children: <Widget>[
-            Padding(
-              padding: EdgeInsets.only(right: 5),
-              child: Text(
-                digit,
-                style: TextStyle(fontSize: 20.0),
-              ),
+            Text(
+              digit,
+              style: isDownload
+                  ? textTheme.headline3.copyWith(
+                      fontWeight: FontWeight.bold,
+                      color: themedColor,
+                    )
+                  : textTheme.headline4.copyWith(color: themedColor),
             ),
             // todo align text to bottom of the line
             Text(
               unit,
-              style: TextStyle(
-                fontSize: 15,
-                textBaseline: TextBaseline.ideographic,
-              ),
+              style: textTheme.bodyText2,
             ),
           ],
         ),

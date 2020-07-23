@@ -1,7 +1,8 @@
 import 'package:flutter/material.dart';
 import 'package:provider/provider.dart';
+import 'package:speedtest/providers/theme_manager.dart';
 import 'package:speedtest/screens/home_screen.dart';
-import 'package:speedtest/services/theme_manager.dart';
+import 'package:speedtest/services/themes.dart';
 import 'package:syncfusion_flutter_core/core.dart';
 
 import 'confidential.dart';
@@ -21,10 +22,8 @@ class MyApp extends StatelessWidget {
           return MaterialApp(
             debugShowCheckedModeBanner: false,
             title: 'Speed Test',
-            theme: themeManager.isDark
-                ? themeManager.darkTheme
-                : themeManager.lightTheme,
-            darkTheme: themeManager.darkTheme,
+            theme: themeManager.isDark ? darkTheme : lightTheme,
+            darkTheme: darkTheme,
             home: HomeScreen(),
           );
         },

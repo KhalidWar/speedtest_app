@@ -12,33 +12,31 @@ class ExtraInfoWidget extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return Expanded(
-      child: Row(
-        mainAxisAlignment: MainAxisAlignment.start,
-        children: <Widget>[
-          Icon(
-            iconData,
-            size: 30,
-          ),
-          SizedBox(width: 5),
-          Column(
-            crossAxisAlignment: CrossAxisAlignment.start,
-            children: <Widget>[
-              Text(
-                title,
-                style: TextStyle(
-                  color: Colors.grey,
-                ),
+    return Row(
+      mainAxisAlignment: MainAxisAlignment.start,
+      children: <Widget>[
+        Icon(
+          iconData,
+          size: 30,
+        ),
+        SizedBox(width: 5),
+        Column(
+          crossAxisAlignment: CrossAxisAlignment.start,
+          children: <Widget>[
+            Text(
+              title,
+              style: TextStyle(
+                color: Colors.grey,
               ),
-              Text(
-                subtitle,
-                overflow: TextOverflow.clip,
-                style: TextStyle(fontSize: 15),
-              ),
-            ],
-          ),
-        ],
-      ),
+            ),
+            Text(
+              subtitle,
+              overflow: TextOverflow.clip,
+              style: TextStyle(fontSize: 15),
+            ),
+          ],
+        ),
+      ],
     );
   }
 }
