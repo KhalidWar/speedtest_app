@@ -1,11 +1,10 @@
 
 # Speedtest - Demo
 
-A UI demo for speedtest application.
-
-A feature rich speed test demo app.
+A UI demo for speedtest application. A feature rich speed test demo app.
 
 ## Screenshots
+![](assets/readme/speedtest_light.gif) ![](assets/readme/speedtest_dark.gif)
 <img src="https://github.com/KhalidWar/speedtest/blob/master/assets/readme/speedtest_light.jpg" width="150"> <img src="https://github.com/KhalidWar/speedtest/blob/master/assets/readme/history_tab_light.jpg" width="150"> <img src="https://github.com/KhalidWar/speedtest/blob/master/assets/readme/history_dialog_half_light.jpg" width="150"> <img src="https://github.com/KhalidWar/speedtest/blob/master/assets/readme/hisotry_dialog_full_light.jpg" width="150"> <img src="https://github.com/KhalidWar/speedtest/blob/master/assets/readme/speedtest_dark.jpg" width="150"> <img src="https://github.com/KhalidWar/speedtest/blob/master/assets/readme/history_tab_dark.jpg" width="150"> <img src="https://github.com/KhalidWar/speedtest/blob/master/assets/readme/history_dialog_half_dark.jpg" width="150"> 
 
 
@@ -15,11 +14,8 @@ A feature rich speed test demo app.
 - Simplified settings page
 - ...and much more
 
-### Upcoming Features
-- "Unlock Screen" command requires mobile device authentication (PIN or biometric)
-
 ### Hard-to-implement Features
-- Example uno.
+- Custom value on RadialGauge.
 
 
 ## Packages used
@@ -50,7 +46,7 @@ A few resources to get you started:
 
 Then clone this repo to your machine:
 
-`https://github.com/KhalidWar/kdeconnect-sample.git`
+`https://github.com/KhalidWar/speedtest.git`
 
 Run app on Emulator or physical device.
 
