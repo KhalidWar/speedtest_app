@@ -41,13 +41,14 @@ Dart/Flutter SDK and plugins
 Emulator or physical device
 ```
 
+
 A few resources to get you started:
 - [Flutter's official guide to get up and running](https://flutter.dev/docs/get-started/install)
 
-Then clone this repo to your machine:
-
-`https://github.com/KhalidWar/speedtest.git`
-
-Run app on Emulator or physical device.
+### Steps
+- Clone this repo to your machine `https://github.com/KhalidWar/speedtest.git`.
+- Obtain a [free community lincense](https://www.syncfusion.com/products/communitylicense) from SyncFusion to use with gauge.
+- Create 'syncFusionLicenseKey' const String in /lib/confidential.dart.
+- Run app on Emulator or physical device.
 
 **All set!**
