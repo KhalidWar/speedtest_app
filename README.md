@@ -1,4 +1,4 @@
-# Speedtest - Demo
+# Speedtest
 A UI demo for speedtest application. A feature rich speed test demo app.
 
 ## Screenshots
