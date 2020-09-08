@@ -1,6 +1,4 @@
-
 # Speedtest - Demo
-
 A UI demo for speedtest application. A feature rich speed test demo app.
 
 ## Screenshots
@@ -14,9 +12,6 @@ A UI demo for speedtest application. A feature rich speed test demo app.
 - Simplified settings page
 - ...and much more
 
-### Hard-to-implement Features
-- Custom value on RadialGauge.
-
 
 ## Packages used
 - [Provider](https://pub.dev/packages/provider)
@@ -29,26 +24,22 @@ A UI demo for speedtest application. A feature rich speed test demo app.
 
 
 ## Installation
-By either sideloading attacked [APK file](https://github.com/KhalidWar/speedtest/releases) onto your android device or building project from source following steps below.
+Install by either sideloading attacked [APK file](https://github.com/KhalidWar/speedtest_app/releases) on your android device or by building project from source following steps below.
 
 ### Getting Started
-These instructions will get you a copy of the project up and running on your local machine for development and testing purposes.
+Check out [Flutter's official guide](https://flutter.dev/docs/get-started/install) to installing and running flutter
 
 ### Prerequisites
-```
-IDE (Android Studio or VSC)
-Dart/Flutter SDK and plugins
-Emulator or physical device
-```
-
-
-A few resources to get you started:
-- [Flutter's official guide to get up and running](https://flutter.dev/docs/get-started/install)
+- Download IDE either [Android Studio](https://developer.android.com/studio) or [VSC](https://code.visualstudio.com/)
+- Install Flutter SDK and Dart plugin
+- Emulator or physical device
 
 ### Steps
-- Clone this repo to your machine `https://github.com/KhalidWar/speedtest.git`.
-- Obtain a [free community lincense](https://www.syncfusion.com/products/communitylicense) from SyncFusion to use with gauge.
-- Create 'syncFusionLicenseKey' const String in /lib/confidential.dart.
-- Run app on Emulator or physical device.
+- Clone this repo to your machine: `https://github.com/KhalidWar/banking_app.git`
+- Obtain a [free community lincense](https://www.syncfusion.com/products/communitylicense) from SyncFusion to use with gauge
+- Create 'syncFusionLicenseKey' const String in /lib/confidential.dart
+- Run on Emulator or physical device
+- All set!
 
-**All set!**
+## License
+This project is licensed under [MIT Licnese](https://github.com/KhalidWar/speedtest_app/blob/master/LICENSE).
