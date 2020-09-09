@@ -40,15 +40,15 @@ class _HomeScreenState extends State<HomeScreen> {
         items: [
           BottomNavigationBarItem(
             icon: Icon(Icons.history),
-            title: Text('History'),
+            label: 'History',
           ),
           BottomNavigationBarItem(
             icon: Icon(Icons.network_check),
-            title: Text('Speedtest'),
+            label: 'Speedtest',
           ),
           BottomNavigationBarItem(
             icon: Icon(Icons.settings),
-            title: Text('Settings'),
+            label: 'Settings',
           ),
         ],
       ),
