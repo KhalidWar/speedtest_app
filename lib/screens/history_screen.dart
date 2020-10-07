@@ -1,7 +1,6 @@
 import 'package:animations/animations.dart';
 import 'package:flutter/material.dart';
 import 'package:speedtest/dummy_data/history_list_item.dart';
-import 'package:speedtest/widgets/app_header.dart';
 import 'package:speedtest/widgets/history_card_widget.dart';
 import 'package:speedtest/widgets/history_detail_dialog.dart';
 import 'package:speedtest/widgets/radial_gauge.dart';
@@ -14,64 +13,50 @@ class HistoryScreen extends StatefulWidget {
 class _HistoryScreenState extends State<HistoryScreen> {
   @override
   Widget build(BuildContext context) {
-    Size size = MediaQuery.of(context).size;
-    return SafeArea(
-      child: Scaffold(
-        body: Padding(
-          padding: EdgeInsets.fromLTRB(10, 15, 10, 0),
-          child: Column(
-            children: <Widget>[
-              AppHeader(),
-              historyItemList.isEmpty
-                  ? historyIsEmpty(size)
-                  : Expanded(
-                      child: ListView.builder(
-                        shrinkWrap: true,
-                        itemCount: historyItemList.length,
-                        itemBuilder: (context, index) {
-                          return Padding(
-                            padding: EdgeInsets.only(bottom: 3),
-                            child: GestureDetector(
-                              onTap: () {
-                                showModal(
-                                  context: context,
-                                  builder: (BuildContext context) {
-                                    return HistoryDetailDialog(
-                                      index: index,
-                                      time: historyItemList[index].time,
-                                      networkType:
-                                          historyItemList[index].networkType,
-                                      ping: historyItemList[index].ping,
-                                      download: historyItemList[index].download,
-                                      upload: historyItemList[index].upload,
-                                      ip: historyItemList[index].ip,
-                                      location: historyItemList[index].location,
-                                    );
-                                  },
-                                );
-                              },
-                              child: HistoryCardWidget(
-                                time: historyItemList[index].time,
-                                network: historyItemList[index].networkType,
-                                ping: historyItemList[index].ping,
-                                download: historyItemList[index].download,
-                                upload: historyItemList[index].upload,
-                                ip: historyItemList[index].ip,
-                                location: historyItemList[index].location,
-                              ),
-                            ),
-                          );
-                        },
-                      ),
-                    ),
-            ],
-          ),
-        ),
-      ),
-    );
+    return historyItemList.isEmpty
+        ? historyIsEmpty()
+        : ListView.builder(
+            shrinkWrap: true,
+            itemCount: historyItemList.length,
+            itemBuilder: (context, index) {
+              return Padding(
+                padding: EdgeInsets.only(bottom: 3),
+                child: GestureDetector(
+                  onTap: () {
+                    showModal(
+                      context: context,
+                      builder: (BuildContext context) {
+                        return HistoryDetailDialog(
+                          index: index,
+                          time: historyItemList[index].time,
+                          networkType: historyItemList[index].networkType,
+                          ping: historyItemList[index].ping,
+                          download: historyItemList[index].download,
+                          upload: historyItemList[index].upload,
+                          ip: historyItemList[index].ip,
+                          location: historyItemList[index].location,
+                        );
+                      },
+                    );
+                  },
+                  child: HistoryCardWidget(
+                    time: historyItemList[index].time,
+                    network: historyItemList[index].networkType,
+                    ping: historyItemList[index].ping,
+                    download: historyItemList[index].download,
+                    upload: historyItemList[index].upload,
+                    ip: historyItemList[index].ip,
+                    location: historyItemList[index].location,
+                  ),
+                ),
+              );
+            },
+          );
   }
 
-  Expanded historyIsEmpty(Size size) {
+  Expanded historyIsEmpty() {
+    Size size = MediaQuery.of(context).size;
+
     return Expanded(
       child: Container(
         width: size.width * 0.85,
