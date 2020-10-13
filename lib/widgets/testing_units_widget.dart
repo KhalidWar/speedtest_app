@@ -2,7 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:speedtest/providers/theme_manager.dart';
 
 class TestingUnitsWidget extends StatelessWidget {
-  TestingUnitsWidget({
+  const TestingUnitsWidget({
     @required this.title,
     @required this.unit,
     @required this.digit,
@@ -30,13 +30,6 @@ class TestingUnitsWidget extends StatelessWidget {
         Row(
           mainAxisAlignment: MainAxisAlignment.center,
           children: <Widget>[
-//            Icon(
-//              iconData,
-//              color: iconColor,
-//              size: isDownload
-//                  ? MediaQuery.of(context).size.height * 0.032
-//                  : MediaQuery.of(context).size.height * 0.02,
-//            ),
             Text(
               ' $title',
               style: textTheme.headline6.copyWith(
